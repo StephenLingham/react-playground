@@ -1,4 +1,4 @@
-# React playground
+# React Playground
 
 A place to play around with React related things
 

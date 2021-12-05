@@ -3,5 +3,5 @@ import { NavBar } from "./NavBar"
 export const HomePage = () =>
   <>
     <NavBar />
-    <h1>Splish splash page</h1>
+    <h1>Home page</h1>
   </>
