@@ -2,24 +2,31 @@ import { Button } from './Button';
 import { useState } from 'react';
 import { Product } from '../models/Product';
 import { connect } from 'react-redux';
-import { addProduct } from '../redux/products';
+import { addProduct, AddProductActionCreator } from '../redux/products';
 
-function AddProductComponent(props: any) {
+function AddProductComponent(props: {
+  addProduct: AddProductActionCreator;
+}): JSX.Element {
   const [productName, setProductName] = useState('');
 
   return (
     <div>
-      <input type='text' value={productName} placeholder='Enter product name' onChange={handleChange} />
-      <Button text='Add' clickHandler={handleClick} />
-    </div>)
+      <input
+        type="text"
+        value={productName}
+        placeholder="Enter product name"
+        onChange={handleChange}
+      />
+      <Button text="Add" clickHandler={handleClick} />
+    </div>
+  );
 
   function handleChange(event: any) {
     setProductName(event.target.value);
   }
 
   function handleClick() {
-    if (productName === '')
-    {
+    if (productName === '') {
       alert('Please enter a name for the product');
 
       return;
@@ -32,12 +39,15 @@ function AddProductComponent(props: any) {
 
 function mapStateToProps(state: any) {
   return {
-    products: state.products
-  }
+    products: state.products,
+  };
 }
 
 const mapDispatchToProps = {
-  addProduct
-}
+  addProduct,
+};
 
-export const AddProduct: any = connect(mapStateToProps, mapDispatchToProps)(AddProductComponent);
+export const AddProduct: any = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddProductComponent);

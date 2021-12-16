@@ -1,7 +1,8 @@
-import { NavBar } from "./NavBar"
+import { NavBar } from './NavBar';
 
-export const HomePage = () =>
+export const HomePage = () => (
   <>
     <NavBar />
     <h1>Home page</h1>
   </>
+);

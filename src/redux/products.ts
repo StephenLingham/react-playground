@@ -1,30 +1,60 @@
+import { Action } from './Action';
 import { Product } from '../models/Product';
 
-const initialState = {
-  products: []
+const AddProduct = 'ADD_PRODUCT';
+const DeleteProduct = 'DELETE_PRODUCT';
+
+type ProductsState = { products: Product[] };
+
+const initialState: ProductsState = {
+  products: [],
+};
+
+interface ProductAction extends Action<Product> {
+  payload: Product;
 }
 
-export function productsReducer(state: any = initialState, action: any) {
+export function productsReducer(
+  state: ProductsState = initialState,
+  action: ProductAction
+) {
   switch (action.type) {
-    case 'ADD_PRODUCT':
-      return { ...state, products: [...state.products, action.product] }
-    case 'DELETE_PRODUCT':
-      return { ...state, products: state.products.filter((product: Product) => product.id !== action.product.id) }
+    case AddProduct:
+      return reduceAddProduct(state, action.payload);
+    case DeleteProduct:
+      return reduceDeleteProduct(state, action.payload);
     default:
       return state;
   }
 }
 
-export function addProduct(product: Product) {
+export type AddProductActionCreator = (product: Product) => ProductAction;
+
+export const addProduct: AddProductActionCreator = function addProduct(
+  product: Product
+): ProductAction {
   return {
-    type: 'ADD_PRODUCT',
-    product
-  }
+    type: AddProduct,
+    payload: product,
+  };
+};
+
+export function deleteProduct(product: Product): ProductAction {
+  return {
+    type: DeleteProduct,
+    payload: product,
+  };
 }
 
-export function deleteProduct(product: Product) {
+function reduceAddProduct(state: ProductsState, productToAdd: Product) {
+  return { ...state, products: [...state.products, productToAdd] };
+}
+
+function reduceDeleteProduct(state: ProductsState, productToDelete: Product) {
   return {
-    type: 'DELETE_PRODUCT',
-    product
-  }
+    ...state,
+    products: state.products.filter(
+      (product: Product) => product.id !== productToDelete?.id
+    ),
+  };
 }
