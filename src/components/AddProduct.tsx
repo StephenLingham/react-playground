@@ -21,7 +21,7 @@ function AddProductComponent(props: {
     </div>
   );
 
-  function handleChange(event: any) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setProductName(event.target.value);
   }
 
@@ -47,7 +47,7 @@ const mapDispatchToProps = {
   addProduct,
 };
 
-export const AddProduct: any = connect(
+export const AddProduct = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AddProductComponent);

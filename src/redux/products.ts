@@ -17,7 +17,7 @@ interface ProductAction extends Action<Product> {
 export function productsReducer(
   state: ProductsState = initialState,
   action: ProductAction
-) {
+): ProductsState {
   switch (action.type) {
     case AddProduct:
       return reduceAddProduct(state, action.payload);
@@ -30,7 +30,7 @@ export function productsReducer(
 
 export type AddProductActionCreator = (product: Product) => ProductAction;
 
-export const addProduct: AddProductActionCreator = function addProduct(
+export const addProduct: AddProductActionCreator = function (
   product: Product
 ): ProductAction {
   return {
@@ -39,12 +39,16 @@ export const addProduct: AddProductActionCreator = function addProduct(
   };
 };
 
-export function deleteProduct(product: Product): ProductAction {
+export type DeleteProductCreatorAction = (product: Product) => ProductAction;
+
+export const deleteProduct: DeleteProductCreatorAction = function (
+  product: Product
+): ProductAction {
   return {
     type: DeleteProduct,
     payload: product,
   };
-}
+};
 
 function reduceAddProduct(state: ProductsState, productToAdd: Product) {
   return { ...state, products: [...state.products, productToAdd] };

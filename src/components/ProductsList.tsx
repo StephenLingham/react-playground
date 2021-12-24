@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import { Product } from '../models/Product';
 import { ProductListItem } from './ProductsListItem';
 
-function ProductsListComponent(props: any) {
+type Props = { products: Product[] };
+
+function ProductsListComponent(props: Props) {
   return (
     <>
       <h4 style={titleStyles}>Products</h4>

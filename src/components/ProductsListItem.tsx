@@ -30,12 +30,12 @@ export const ProductListItem = connect(
   mapDispatchToProps
 )(ProductsListItemComponent);
 
-const buttonStyles = {
+const buttonStyles: React.CSSProperties = {
   backgroundColor: 'red',
   display: 'inline',
   marginRight: '0.2em',
 };
 
-const itemStyle = {
+const itemStyle: React.CSSProperties = {
   marginBottom: '0.2em',
 };

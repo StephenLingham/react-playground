@@ -1,10 +1,8 @@
-export function Button(props: any) {
-  return (
-    <button onClick={props.clickHandler} style={{ ...style, ...props.style }}>
-      {props.text}
-    </button>
-  );
-}
+type Props = {
+  clickHandler: () => void;
+  text: string;
+  style?: React.CSSProperties;
+};
 
 const style = {
   display: 'block',
@@ -12,5 +10,12 @@ const style = {
   borderRadius: '0.6em',
   border: 'none',
   padding: '0.7em',
-  //margin: '0.2em'
+};
+
+export const Button: React.FC<Props> = (props: Props): JSX.Element => {
+  return (
+    <button onClick={props.clickHandler} style={{ ...style, ...props.style }}>
+      {props.text}
+    </button>
+  );
 };
