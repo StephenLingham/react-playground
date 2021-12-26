@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
 import { Button } from './Button';
-import { deleteProduct } from '../redux/products';
+import { deleteProduct, DeleteProductCreatorAction } from '../redux/products';
+import { Product } from '../models/Product';
 
-function ProductsListItemComponent(props: any) {
+type Props = {
+  product: Product;
+  deleteProduct: DeleteProductCreatorAction;
+};
+
+function ProductsListItemComponent(props: Props) {
   return (
     <li style={itemStyle}>
       <Button
@@ -25,7 +31,7 @@ const mapDispatchToProps = {
   deleteProduct,
 };
 
-export const ProductListItem = connect(
+export const ProductsListItem = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProductsListItemComponent);

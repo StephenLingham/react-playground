@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Product } from '../models/Product';
-import { ProductListItem } from './ProductsListItem';
+import { ProductsListItem } from './ProductsListItem';
 
 type Props = { products: Product[] };
 
@@ -10,7 +10,7 @@ function ProductsListComponent(props: Props) {
       <h4 style={titleStyles}>Products</h4>
       <ul style={listStyles}>
         {props.products.map((product: Product) => (
-          <ProductListItem key={product.id.toString()} product={product} />
+          <ProductsListItem key={product.id.toString()} product={product} />
         ))}
       </ul>
     </>
