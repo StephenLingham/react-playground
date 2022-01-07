@@ -28,28 +28,6 @@ export function productsReducer(
   }
 }
 
-export type AddProductActionCreator = (product: Product) => ProductAction;
-
-export const addProduct: AddProductActionCreator = function (
-  product: Product
-): ProductAction {
-  return {
-    type: AddProduct,
-    payload: product,
-  };
-};
-
-export type DeleteProductCreatorAction = (product: Product) => ProductAction;
-
-export const deleteProduct: DeleteProductCreatorAction = function (
-  product: Product
-): ProductAction {
-  return {
-    type: DeleteProduct,
-    payload: product,
-  };
-};
-
 function reduceAddProduct(state: ProductsState, productToAdd: Product) {
   return { ...state, products: [...state.products, productToAdd] };
 }
@@ -62,3 +40,23 @@ function reduceDeleteProduct(state: ProductsState, productToDelete: Product) {
     ),
   };
 }
+
+export type ProductActionCreator = (product: Product) => ProductAction;
+
+export const addProduct: ProductActionCreator = function (
+  product: Product
+): ProductAction {
+  return {
+    type: AddProduct,
+    payload: product,
+  };
+};
+
+export const deleteProduct: ProductActionCreator = function (
+  product: Product
+): ProductAction {
+  return {
+    type: DeleteProduct,
+    payload: product,
+  };
+};

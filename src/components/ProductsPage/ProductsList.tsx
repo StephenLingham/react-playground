@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Product } from '../models/Product';
+import { Product } from '../../models/Product';
 import { ProductsListItem } from './ProductsListItem';
 
 type Props = { products: Product[] };
@@ -7,7 +7,7 @@ type Props = { products: Product[] };
 function ProductsListComponent(props: Props) {
   return (
     <>
-      <h4 style={titleStyles}>Products</h4>
+      {/* <h4 style={titleStyles}>Products</h4> */}
       <ul style={listStyles}>
         {props.products.map((product: Product) => (
           <ProductsListItem key={product.id.toString()} product={product} />
@@ -31,6 +31,6 @@ const listStyles = {
   padding: 0,
 };
 
-const titleStyles = {
-  margin: 0,
-};
+// const titleStyles = {
+//   margin: 0,
+// };

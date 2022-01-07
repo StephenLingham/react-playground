@@ -6,7 +6,7 @@ type Props = {
 
 const style = {
   display: 'block',
-  backgroundColor: 'lightblue',
+  backgroundColor: 'paleturquoise',
   borderRadius: '0.6em',
   border: 'none',
   padding: '0.7em',
