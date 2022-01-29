@@ -7,7 +7,6 @@ type Props = { products: Product[] };
 function ProductsListComponent(props: Props) {
   return (
     <>
-      {/* <h4 style={titleStyles}>Products</h4> */}
       <ul style={listStyles}>
         {props.products.map((product: Product) => (
           <ProductsListItem key={product.id.toString()} product={product} />
@@ -30,7 +29,3 @@ const listStyles = {
   margin: 0,
   padding: 0,
 };
-
-// const titleStyles = {
-//   margin: 0,
-// };

@@ -37,17 +37,11 @@ function AddProductComponent(props: {
   }
 }
 
-function mapStateToProps(state: any) {
-  return {
-    products: state.products,
-  };
-}
-
 const mapDispatchToProps = {
   addProduct,
 };
 
 export const AddProduct = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(AddProductComponent);

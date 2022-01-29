@@ -60,19 +60,19 @@ function reduceToggleDone(todoItems: TodoItem[], todoItem: TodoItem) {
 
 export type TodoActionCreator = (todoItem: TodoItem) => TodoItemAction;
 
-export const addTodoActionCreator: TodoActionCreator = (
+export const addTodo: TodoActionCreator = (
   todoItem: TodoItem
 ): TodoItemAction => {
   return new TodoItemAction(AddTodo, todoItem);
 };
 
-export const deleteTodoActionCreator: TodoActionCreator = (
+export const deleteTodo: TodoActionCreator = (
   todoItem: TodoItem
 ): TodoItemAction => {
   return new TodoItemAction(DeleteTodo, todoItem);
 };
 
-export const toggleTodoActionCreator: TodoActionCreator = (
+export const toggleTodo: TodoActionCreator = (
   todoItem: TodoItem
 ): TodoItemAction => {
   return new TodoItemAction(ToggleDone, todoItem);
