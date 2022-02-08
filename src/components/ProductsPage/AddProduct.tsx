@@ -2,10 +2,11 @@ import { Button } from '../Button';
 import { useState } from 'react';
 import { Product } from '../../models/Product';
 import { connect } from 'react-redux';
-import { addProduct, ProductActionCreator } from '../../redux/products';
+import { addProduct } from '../../redux/products';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 function AddProductComponent(props: {
-  addProduct: ProductActionCreator;
+  addProduct: ActionCreatorWithPayload<Product>;
 }): JSX.Element {
   const [productName, setProductName] = useState('');
 

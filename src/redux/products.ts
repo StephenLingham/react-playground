@@ -1,16 +1,12 @@
-import { Action } from './Action';
 import { Product } from '../models/Product';
+import { createAction, PayloadAction } from '@reduxjs/toolkit';
 
 const AddProduct = 'ADD_PRODUCT';
 const DeleteProduct = 'DELETE_PRODUCT';
 
-interface ProductAction extends Action<Product> {
-  payload: Product;
-}
-
 export function productsReducer(
   state: Product[] = [],
-  action: ProductAction
+  action: PayloadAction<Product>
 ): Product[] {
   switch (action.type) {
     case AddProduct:
@@ -32,22 +28,6 @@ function reduceDeleteProduct(products: Product[], productToDelete: Product) {
   );
 }
 
-export type ProductActionCreator = (product: Product) => ProductAction;
+export const addProduct = createAction<Product>(AddProduct);
 
-export const addProduct: ProductActionCreator = function (
-  product: Product
-): ProductAction {
-  return {
-    type: AddProduct,
-    payload: product,
-  };
-};
-
-export const deleteProduct: ProductActionCreator = function (
-  product: Product
-): ProductAction {
-  return {
-    type: DeleteProduct,
-    payload: product,
-  };
-};
+export const deleteProduct = createAction<Product>(DeleteProduct);

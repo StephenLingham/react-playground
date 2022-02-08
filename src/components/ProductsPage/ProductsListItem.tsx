@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { Button } from '../Button';
-import { deleteProduct, ProductActionCreator } from '../../redux/products';
+import { deleteProduct } from '../../redux/products';
 import { Product } from '../../models/Product';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 type Props = {
   product: Product;
-  deleteProduct: ProductActionCreator;
+  deleteProduct: ActionCreatorWithPayload<Product>;
 };
 
 function ProductsListItemComponent(props: Props) {

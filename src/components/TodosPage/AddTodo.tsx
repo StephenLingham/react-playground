@@ -1,10 +1,13 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { TodoItem } from '../../models/TodoItem';
-import { addTodo, TodoActionCreator } from '../../redux/todoItems';
+import { addTodo } from '../../redux/todoItems';
 import { Button } from '../Button';
 
-function AddTodoComponent(props: { addTodo: TodoActionCreator }): JSX.Element {
+function AddTodoComponent(props: {
+  addTodo: ActionCreatorWithPayload<TodoItem, string>;
+}): JSX.Element {
   const [todoText, setTodoText] = useState('');
 
   return (

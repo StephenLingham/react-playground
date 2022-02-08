@@ -1,32 +1,13 @@
 import { TodoItem } from '../models/TodoItem';
-import { Action } from './Action';
+import { createAction, PayloadAction } from '@reduxjs/toolkit';
 
 const AddTodo = 'ADD_TODO';
 const DeleteTodo = 'DELETE_TODO';
 const ToggleDone = 'TOGGLE_DONE';
 
-class TodoItemAction implements Action<TodoItem> {
-  private _type: string;
-
-  public get type(): string {
-    return this._type;
-  }
-
-  private _payload: TodoItem;
-
-  public get payload(): TodoItem {
-    return this._payload;
-  }
-
-  constructor(type: string, payload: TodoItem) {
-    this._type = type;
-    this._payload = payload;
-  }
-}
-
 export function todoItemsReducer(
   state: TodoItem[] = [],
-  action: TodoItemAction
+  action: PayloadAction<TodoItem>
 ): TodoItem[] {
   switch (action.type) {
     case AddTodo:
@@ -58,22 +39,8 @@ function reduceToggleDone(todoItems: TodoItem[], todoItem: TodoItem) {
   });
 }
 
-export type TodoActionCreator = (todoItem: TodoItem) => TodoItemAction;
+export const addTodo = createAction<TodoItem>(AddTodo);
 
-export const addTodo: TodoActionCreator = (
-  todoItem: TodoItem
-): TodoItemAction => {
-  return new TodoItemAction(AddTodo, todoItem);
-};
+export const deleteTodo = createAction<TodoItem>(DeleteTodo);
 
-export const deleteTodo: TodoActionCreator = (
-  todoItem: TodoItem
-): TodoItemAction => {
-  return new TodoItemAction(DeleteTodo, todoItem);
-};
-
-export const toggleTodo: TodoActionCreator = (
-  todoItem: TodoItem
-): TodoItemAction => {
-  return new TodoItemAction(ToggleDone, todoItem);
-};
+export const toggleDone = createAction<TodoItem>(ToggleDone);
