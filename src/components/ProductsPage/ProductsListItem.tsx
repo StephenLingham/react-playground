@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import { deleteProduct } from '../../redux/products';
 import { Product } from '../../models/Product';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { RootState } from '../../redux/rootReducer';
 
 type Props = {
   product: Product;
@@ -22,7 +23,7 @@ function ProductsListItemComponent(props: Props) {
   );
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: RootState) {
   return {
     products: state.products,
   };

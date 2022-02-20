@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { Product } from '../../models/Product';
+import { RootState } from '../../redux/rootReducer';
 import { ProductsListItem } from './ProductsListItem';
 
 type Props = { products: Product[] };
@@ -16,7 +17,7 @@ function ProductsListComponent(props: Props) {
   );
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: RootState) {
   return {
     products: state.products,
   };
