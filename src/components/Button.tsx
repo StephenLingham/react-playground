@@ -12,7 +12,7 @@ const style = {
   padding: '0.7em',
 };
 
-export const Button: React.FC<Props> = (props: Props): JSX.Element => {
+export const Button = (props: Props): JSX.Element => {
   return (
     <button onClick={props.clickHandler} style={{ ...style, ...props.style }}>
       {props.text}
