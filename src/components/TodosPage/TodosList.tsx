@@ -7,7 +7,8 @@ function TodosListComponent(props: TodoItem[]) {
   return (
     <>
       <ul style={listStyles}>
-        {props.map((todoItem: TodoItem) => {})} {/*  <TodoListItem todoItem={todoItem}/>)} */}
+        {props.map((todoItem: TodoItem) => {})}{' '}
+        {/*  <TodoListItem todoItem={todoItem}/>)} */}
       </ul>
     </>
   );
