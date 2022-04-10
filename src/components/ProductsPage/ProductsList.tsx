@@ -17,6 +17,7 @@ function ProductsListComponent(props: Props) {
   );
 }
 
+// delete this?
 function mapStateToProps(state: RootState) {
   return {
     products: state.products,

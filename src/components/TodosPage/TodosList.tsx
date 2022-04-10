@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { TodoItem } from '../../models/TodoItem';
 import { RootState } from '../../redux/rootReducer';
+import { TodoListItem } from './TodoListItem';
 
 function TodosListComponent(props: TodoItem[]) {
   return (
     <>
       <ul style={listStyles}>
-        {props.map((todoItem: TodoItem) => {})} {/* <TodoListItem/>)} */}
+        {props.map((todoItem: TodoItem) => {})} {/*  <TodoListItem todoItem={todoItem}/>)} */}
       </ul>
     </>
   );

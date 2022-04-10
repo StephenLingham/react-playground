@@ -22,10 +22,11 @@ function TodoListItemComponent(props: Props) {
       <span>{props.todoItem.task}</span>
       <div>
         <span>{'Done: '}</span>
-        <input 
+        <input
           type="checkbox"
           checked={props.todoItem.done}
-          onClick={handleCheckboxClick}/>
+          onClick={handleCheckboxClick}
+        />
       </div>
     </li>
   );
