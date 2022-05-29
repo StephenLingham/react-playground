@@ -1,6 +1,6 @@
 # React Playground
 
-A place to play around with React related things
+A place to play around with React related things. React app built using React, Redux, Redux Toolkit, React Router, TypeScript, ESLint, Prettier and Husky.
 
 ## Available Scripts
 
